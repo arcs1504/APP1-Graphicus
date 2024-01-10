@@ -39,6 +39,10 @@ public:
 
 private:
      Couche couches[MAX_COUCHES];
+     bool active;
+     bool inactive;
+     bool initialiser;
+
 };
 
 #endif

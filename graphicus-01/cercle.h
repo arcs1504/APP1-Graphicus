@@ -1,7 +1,7 @@
 #ifndef CERCLE_H
 #define CERCLE_H
 
-#include <forme.h>
+#include "forme.h"
 
 class Cercle:public Forme
 {
@@ -19,8 +19,4 @@ class Cercle:public Forme
 	protected:
 		float rayon;
 };
-
-
-
-
 #endif
