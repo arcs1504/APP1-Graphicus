@@ -1,8 +1,8 @@
 #include "vecteur.h"
 #include "cercle.h"
+#include "Forme.h"
 
-void Vecteur::createNewCercle(float rayon, int x, int y)
+void Vecteur::doubler(int taille)
 {
-	Cercle *newCercle = new Cercle(rayon, x, y);
-
+	formes[taille * 2] = new Forme
 }

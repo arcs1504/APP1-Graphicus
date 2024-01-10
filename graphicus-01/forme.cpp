@@ -8,6 +8,7 @@
 ********/
 
 #include "forme.h"
+#include <iostream>
 
 Forme::Forme(int x1, int y1)
 {
