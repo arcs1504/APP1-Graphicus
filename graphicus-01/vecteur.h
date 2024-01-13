@@ -3,13 +3,31 @@
 class Vecteur
 {
 	public:
-		void doubler(int taille);		
+		Vecteur();
+
+		bool insert(Forme *forme);
+
+		Forme* deleteElement(int deleteIndex);
+
+		Forme* getShape(int shapeIndex);
+
+		int capacity()
+		{ return arraySize; };
+
+		int size()
+		{ return nbElements; };
+
+		bool isEmpty();
+
+		void destroy();
+
+		void print();
+
 	private:
-		int index = 0;
-		int taille;
+
+		void doubleSize();		
+
+		int arraySize;
 		int nbElements;
-		Forme formes[taille];
-
-		
+		Forme* *formes;
 };
-

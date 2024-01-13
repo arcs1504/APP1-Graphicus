@@ -6,11 +6,10 @@
 # Description: compilation de graphicus-01. Ce fichier fait partie de 
 #	la distribution de Graphicus.
 #
+graphicus-01: graphicus-01.o tests.o canevas.o couche.o forme.o cercle.o vecteur.o 
+	g++ -o graphicus-01 graphicus-01.o tests.o canevas.o couche.o forme.o cercle.o vecteur.o 
 
-graphicus-01: graphicus-01.o tests.o canevas.o couche.o forme.o 
-	g++ -o graphicus-01 graphicus-01.o tests.o canevas.o couche.o forme.o 
-
-graphicus-01.o: graphicus-01.cpp canevas.h couche.h forme.h
+graphicus-01.o: graphicus-01.cpp canevas.h couche.h forme.h cercle.h
 	g++ -c graphicus-01.cpp
 
 tests.o: tests.cpp tests.h canevas.h couche.h forme.h
@@ -24,6 +23,12 @@ couche.o: couche.cpp couche.h forme.h
 
 forme.o: forme.cpp forme.h
 	g++ -c forme.cpp
+
+cercle.o: cercle.cpp cercle.h
+	g++ -c cercle.cpp
+
+vecteur.o: vecteur.cpp vecteur.h
+	g++ -c vecteur.cpp
 
 clean:
 	rm  -f *.o

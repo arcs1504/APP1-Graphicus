@@ -8,13 +8,15 @@
  *    fichier fait partie de la distribution de Graphicus.
 ********/
 #include "tests.h"
+#include "cercle.h"
 
 using namespace std;
 
 int main()
 {
+	Cercle allo;
    Tests tests;
-   
+
    tests.tests_application();
    return 0;
 }

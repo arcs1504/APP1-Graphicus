@@ -13,9 +13,25 @@
 #ifndef COUCHE_H
 #define COUCHE_H
 
+#include "vecteur.h"
+
 class Couche
 {
-   // Classe a completer
+	Couche();
+	
+	bool addShape(Forme *shape);
+
+	Forme* removeShape(int shapeIndex);
+
+	Forme* getShape(int shapeIndex);
+
+	float getArea();
+	
+	private:
+		bool initialised;
+		bool active;
+		bool inactive;
+		Vecteur shapes;
 };
 
 #endif

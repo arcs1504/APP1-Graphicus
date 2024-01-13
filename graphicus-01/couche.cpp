@@ -9,5 +9,83 @@
 ********/
 
 #include "couche.h"
+#include "vecteur.h"
 
-// Implementation a faire...
+Couche::Couche()
+{
+	initialised = true;	
+}
+
+bool Couche::addShape(Forme *shape)
+{
+	shapes.insert(shape);
+
+	return true;
+}
+
+Forme* Couche::removeShape(int shapeIndex)
+{
+	if(shapeIndex < 0)
+	{
+		Forme *error = {nullptr};
+		return error;
+	}
+	return shapes.deleteElement(shapeIndex);	
+}
+
+Forme* Couche::getShape(int shapeIndex)
+{
+	if(shapeIndex < 0)
+	{
+		Forme *error = {nullptr};
+		return error;
+	}
+	return shapes.getShape(shapeIndex);
+}
+
+float Couche::getArea()
+{
+	int area;
+
+	for(int i = 0; i < shapes.size(); i++)
+	{
+			
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

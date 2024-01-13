@@ -16,7 +16,7 @@ void Tests::tests_unitaires_formes()
 
 void Tests::tests_unitaires_vecteur()
 {
-   // Tests sur la classe Vecteur
+	Vecteur testVecteur;
 }
 
 void Tests::tests_unitaires_couche()
