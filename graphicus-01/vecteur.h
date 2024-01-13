@@ -23,9 +23,8 @@ class Vecteur
 
 		void print();
 
-		void doubleSize();		
-
 	private:
+		void doubleSize();		
 		int arraySize;
 		int nbElements;
 		Forme* *formes;

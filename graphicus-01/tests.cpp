@@ -16,28 +16,14 @@ void Tests::tests_unitaires_formes()
    // Tests sur les formes geometriques
 }
 
+
 void Tests::tests_unitaires_vecteur()
 {
-	Vecteur testVecteur;
+	inserted_shape_returns_the_right_shape();
 
-	//Forme* *newFormes = new Forme*[2];
-	//
-	//Cercle *cercle1 = new Cercle;
+	test_insert_when_at_max_capacity_should_double_size_and_insert_item();
 
-	//newFormes[0] = cercle1;
-	
-	Cercle *cercle1 = new Cercle;
-	
-	if(testVecteur.insert(cercle1))
-	{
-		std::cout << testVecteur.getShape(0);
-	}
-	else
-	{
-		std::cout << "oh oh";
-	}
-	
-	delete cercle1;
+	test_insert_when_inserting_same_pointer_twice_should_refuse_to_insert_it();
 }
 
 void Tests::tests_unitaires_couche()
@@ -76,4 +62,72 @@ void Tests::tests_application_cas_02()
 {
    cout << "TESTS APPLICATION (CAS 02)" << endl;  
     // Il faut ajouter les operations realisant ce scenario de test.
+}
+
+//*******************************Tests sur les vecteur**********************************************//
+void inserted_shape_returns_the_right_shape()
+{
+	Vecteur testVecteur;
+	
+	Cercle *cercle1 = new Cercle(10, 5, 5);
+
+	if(testVecteur.insert(cercle1))
+	{
+		Cercle *result = (Cercle*)testVecteur.getShape(0);
+		if (result->getRayon() == 10)
+		{
+			std::cout << "Success" << endl;
+		}
+		else
+		{
+			std::cout << "Fail: Expected Rayon to be 10 but was " << result->getRayon() << endl;
+		}
+	}
+
+	delete cercle1;
+	
+}
+
+void test_insert_when_at_max_capacity_should_double_size_and_insert_item()  
+{
+	Vecteur testVecteur;
+
+	int number_of_loops = testVecteur.capacity() + 1;
+
+	int initialCapacity = testVecteur.capacity();
+
+	for(int i = 0; i < number_of_loops; i++)
+	{
+		testVecteur.insert(new Cercle);
+	}
+
+	if(testVecteur.size() == number_of_loops && testVecteur.capacity() == initialCapacity * 2)
+	{
+		cout << "Success" << endl;
+	}
+	else
+	{
+		cout << "Fail" << endl;
+		cout << "Expected size: " << number_of_loops << " Actual: " << testVecteur.size() << endl;
+		cout << "Expected capacity: " << initialCapacity * 2 << " Actual: " << testVecteur.capacity() << endl;
+	}
+
+	testVecteur.destroy();
+}
+
+void test_insert_when_inserting_same_pointer_twice_should_refuse_to_insert_it()
+{
+	Vecteur testVecteur;
+
+	Cercle *cercle1 = new Cercle;
+
+	testVecteur.insert(cercle1);
+	if(testVecteur.insert(cercle1))
+	{
+		cout << "Fail: Wasn't supposed to accept the same pointer" << endl;
+	}
+	else
+	{
+		cout << "Success" << endl;
+	}
 }

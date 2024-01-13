@@ -19,18 +19,23 @@ void Vecteur::doubleSize()
 
 bool Vecteur::insert(Forme *forme)
 {
+	for(int i = 0; i < nbElements; i++)
+	{
+		if(formes[i] == forme)
+		{
+			return false;
+		}
+	}
+
 	if(arraySize == nbElements)
 	{
 		doubleSize();
 	}
-	else
-	{
-		cout << formes;
-		formes[nbElements] = forme;
-		nbElements++;
-	}
 
-	return true; //When to return false?
+	formes[nbElements] = forme;
+	nbElements++;
+
+	return true;
 }
 
 Forme* Vecteur::deleteElement(int deleteIndex)

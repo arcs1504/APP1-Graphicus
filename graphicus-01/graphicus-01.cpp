@@ -13,7 +13,6 @@ using namespace std;
 
 int main()
 {
-	cout << "hello woeld";
    	Tests tests;
 
    	tests.tests_unitaires_vecteur();
