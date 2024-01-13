@@ -17,15 +17,16 @@
 
 class Couche
 {
-	Couche();
-	
-	bool addShape(Forme *shape);
+	public:
+		Couche();
+		
+		bool addShape(Forme *shape);
 
-	Forme* removeShape(int shapeIndex);
+		Forme* removeShape(int shapeIndex);
 
-	Forme* getShape(int shapeIndex);
+		Forme* getShape(int shapeIndex);
 
-	float getArea();
+		float getArea();
 	
 	private:
 		bool initialised;
@@ -33,5 +34,4 @@ class Couche
 		bool inactive;
 		Vecteur shapes;
 };
-
 #endif

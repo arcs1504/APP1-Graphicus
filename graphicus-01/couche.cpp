@@ -9,7 +9,6 @@
 ********/
 
 #include "couche.h"
-#include "vecteur.h"
 
 Couche::Couche()
 {
@@ -49,7 +48,7 @@ float Couche::getArea()
 
 	for(int i = 0; i < shapes.size(); i++)
 	{
-			
+
 	}
 }
 

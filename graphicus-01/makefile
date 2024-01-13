@@ -6,8 +6,8 @@
 # Description: compilation de graphicus-01. Ce fichier fait partie de 
 #	la distribution de Graphicus.
 #
-graphicus-01: graphicus-01.o tests.o canevas.o couche.o forme.o cercle.o vecteur.o 
-	g++ -o graphicus-01 graphicus-01.o tests.o canevas.o couche.o forme.o cercle.o vecteur.o 
+graphicus-01: graphicus-01.o tests.o canevas.o couche.o forme.o cercle.o vecteur.o
+	g++ -o graphicus-01 graphicus-01.o tests.o canevas.o couche.o forme.o cercle.o vecteur.o
 
 graphicus-01.o: graphicus-01.cpp canevas.h couche.h forme.h cercle.h
 	g++ -c graphicus-01.cpp

@@ -8,6 +8,8 @@
 ********/
 
 #include "tests.h"
+#include "cercle.h"
+#include <iostream>
 
 void Tests::tests_unitaires_formes()
 {
@@ -17,6 +19,25 @@ void Tests::tests_unitaires_formes()
 void Tests::tests_unitaires_vecteur()
 {
 	Vecteur testVecteur;
+
+	//Forme* *newFormes = new Forme*[2];
+	//
+	//Cercle *cercle1 = new Cercle;
+
+	//newFormes[0] = cercle1;
+	
+	Cercle *cercle1 = new Cercle;
+	
+	if(testVecteur.insert(cercle1))
+	{
+		std::cout << testVecteur.getShape(0);
+	}
+	else
+	{
+		std::cout << "oh oh";
+	}
+	
+	delete cercle1;
 }
 
 void Tests::tests_unitaires_couche()

@@ -36,6 +36,11 @@ bool Cercle::checkValue(double value)
 	}
 }
 
+double Cercle::aire()
+{
+	return M_PI * rayon * rayon;
+}
+
 void Cercle::afficher(ostream &s)
 {
 	s << "Cercle de rayon " << rayon << ", positioner en x:" << ancrage.x << " et en y:" << ancrage.y << " avec un aire de " << aire();

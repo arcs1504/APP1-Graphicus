@@ -18,8 +18,7 @@ class Cercle:public Forme
 		float getRayon() const
 		{ return rayon; };
 
-		virtual double aire() 
-		{ return M_PI * rayon * rayon; };
+		virtual double aire();
 
 		virtual void afficher(ostream &s);
 		

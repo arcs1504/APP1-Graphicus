@@ -3,9 +3,9 @@
 
 Vecteur::Vecteur()
 {
-	int arraySize = 1;
+	arraySize = 2;
 	formes = new Forme*[arraySize];
-	int nbElements = 0;
+	nbElements = 0;
 }
 
 void Vecteur::doubleSize()
@@ -25,7 +25,8 @@ bool Vecteur::insert(Forme *forme)
 	}
 	else
 	{
-		formes[nbElements + 1] = forme;
+		cout << formes;
+		formes[nbElements] = forme;
 		nbElements++;
 	}
 
