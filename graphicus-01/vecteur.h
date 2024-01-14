@@ -23,10 +23,12 @@ class Vecteur
 
 		void print();
 
-	private:
 		void doubleSize();		
+
+		Forme* *formes;
+
+	private:
 		int arraySize;
 		int nbElements;
 		const int initialArraySize = 2;
-		Forme* *formes;
 };

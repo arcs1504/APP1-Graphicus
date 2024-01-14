@@ -25,7 +25,11 @@ void Tests::tests_unitaires_vecteur()
 
 	test_insert_when_inserting_same_pointer_twice_should_refuse_to_insert_it();
 
-	test_destroy_should_empty_the_array();
+	test_doubleSize_should_keep_elements();
+
+	test_destroy_should_reset_size_and_capacity_values();
+
+	test_deleteElement_should_return_pointer_of_deleted_element();
 }
 
 void Tests::tests_unitaires_couche()
@@ -134,7 +138,7 @@ void test_insert_when_inserting_same_pointer_twice_should_refuse_to_insert_it()
 	}
 }
 
-void test_destroy_should_empty_the_array()
+void test_destroy_should_reset_size_and_capacity_values()
 {
 	Vecteur testVecteur;
 
@@ -146,19 +150,74 @@ void test_destroy_should_empty_the_array()
 		testVecteur.insert(cercle);
 	}
 
-//	testVecteur.destroy();
+	testVecteur.destroy();
+
+	if(testVecteur.capacity() == 2 && testVecteur.size() == 0)
+	{
+		cout << "Success" << endl;
+	}
+	else
+	{
+		cout << "Fail: (Expected capacity: 2 Actual: " << testVecteur.capacity() << ") (Expected size: 0 Actual: " << testVecteur.size() << ")" << endl;
+	}
+}
+
+void test_doubleSize_should_keep_elements()
+{
+	Vecteur testVecteur;
+
+	int numberOfLoops = testVecteur.capacity();
+
+	Forme* *formesBeforeDoubleSize = new Forme*[numberOfLoops]; 
 
 	for(int i = 0; i < numberOfLoops; i++)
 	{
-		//Cercle* cercle = (Cercle*)testVecteur.getShape(i);
-		cout << testVecteur.getShape(i) << endl;
+		Cercle *cercle = new Cercle;
+		testVecteur.insert(cercle);	
+		formesBeforeDoubleSize[i] = cercle;
+	}
 
-		if(testVecteur.getShape(i) != NULL)
+	testVecteur.doubleSize();
+
+	for(int i = 0; i < numberOfLoops; i++)
+	{
+		if(testVecteur.getShape(i) != formesBeforeDoubleSize[i])
 		{
-			cout << "Fail: The array isn't NULL" << endl;
+			cout << "Fail: pointers are different" << endl;
 			return;
 		}
 	}
 
-	cout << "Success";
+	cout << "Success" << endl;
+	return;
 }
+
+void test_deleteElement_should_return_pointer_of_deleted_element()
+{
+	Vecteur testVecteur;
+
+	testVecteur.insert(new Cercle);
+
+	Forme *deletedForme = testVecteur.getShape(0);
+
+	cout << "deletedForme " << deletedForme << endl;
+	cout << "deletedElement" << testVecteur.deleteElement(0) << endl;
+
+	//if(testVecteur.deleteElement(0) == deletedForme)
+	//{
+	//	cout << "Success" << endl;		
+	//	return;
+	//}
+
+	cout << "Fail" << endl;
+
+	return;
+}
+
+
+
+
+
+
+
+

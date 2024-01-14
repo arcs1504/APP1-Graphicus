@@ -39,4 +39,9 @@ void test_insert_when_inserting_same_pointer_twice_should_refuse_to_insert_it();
 
 void test_destroy_should_empty_the_array();
 
+void test_doubleSize_should_keep_elements();
+
+void test_destroy_should_reset_size_and_capacity_values();
+
+void test_deleteElement_should_return_pointer_of_deleted_element();
 #endif

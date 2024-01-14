@@ -14,6 +14,11 @@ void Vecteur::doubleSize()
 
 	Forme* *newFormes = new Forme*[arraySize];
 
+	for(int i = 0; i < nbElements; i++)
+	{
+		newFormes[i] = formes[i];
+	}
+
 	formes = newFormes;
 }
 
@@ -94,17 +99,16 @@ bool Vecteur::isEmpty()
 
 void Vecteur::destroy()
 {
-	for(int i = 0; i < nbElements; i++)
+	for(int i = 0; i < nbElements; i++) //Delete shapes
 	{
 		delete formes[i];
-		formes[i] = NULL;
 	}
 
 	delete formes;
 
-//formes = new Forme*[initialArraySize];
-//
-//	arraySize = initialArraySize;
-//	nbElements = 0;
+	formes = new Forme*[initialArraySize];
+
+	arraySize = initialArraySize;
+	nbElements = 0;
 }
 
