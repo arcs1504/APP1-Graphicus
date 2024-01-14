@@ -3,7 +3,7 @@
 
 Vecteur::Vecteur()
 {
-	arraySize = 2;
+	arraySize = initialArraySize;
 	formes = new Forme*[arraySize];
 	nbElements = 0;
 }
@@ -97,8 +97,14 @@ void Vecteur::destroy()
 	for(int i = 0; i < nbElements; i++)
 	{
 		delete formes[i];
+		formes[i] = NULL;
 	}
 
-	nbElements = 0;
+	delete formes;
+
+//formes = new Forme*[initialArraySize];
+//
+//	arraySize = initialArraySize;
+//	nbElements = 0;
 }
 

@@ -24,6 +24,8 @@ void Tests::tests_unitaires_vecteur()
 	test_insert_when_at_max_capacity_should_double_size_and_insert_item();
 
 	test_insert_when_inserting_same_pointer_twice_should_refuse_to_insert_it();
+
+	test_destroy_should_empty_the_array();
 }
 
 void Tests::tests_unitaires_couche()
@@ -130,4 +132,33 @@ void test_insert_when_inserting_same_pointer_twice_should_refuse_to_insert_it()
 	{
 		cout << "Success" << endl;
 	}
+}
+
+void test_destroy_should_empty_the_array()
+{
+	Vecteur testVecteur;
+
+	int numberOfLoops = 15;
+
+	for(int i = 0; i < numberOfLoops; i++)
+	{
+		Cercle *cercle = new Cercle(3, 5, 7);
+		testVecteur.insert(cercle);
+	}
+
+//	testVecteur.destroy();
+
+	for(int i = 0; i < numberOfLoops; i++)
+	{
+		//Cercle* cercle = (Cercle*)testVecteur.getShape(i);
+		cout << testVecteur.getShape(i) << endl;
+
+		if(testVecteur.getShape(i) != NULL)
+		{
+			cout << "Fail: The array isn't NULL" << endl;
+			return;
+		}
+	}
+
+	cout << "Success";
 }

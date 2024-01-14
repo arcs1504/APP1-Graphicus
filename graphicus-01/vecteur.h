@@ -27,5 +27,6 @@ class Vecteur
 		void doubleSize();		
 		int arraySize;
 		int nbElements;
+		const int initialArraySize = 2;
 		Forme* *formes;
 };

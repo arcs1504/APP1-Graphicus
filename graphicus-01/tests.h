@@ -37,5 +37,6 @@ void test_insert_when_at_max_capacity_should_double_size_and_insert_item();
 
 void test_insert_when_inserting_same_pointer_twice_should_refuse_to_insert_it();
 
+void test_destroy_should_empty_the_array();
 
 #endif
