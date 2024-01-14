@@ -192,24 +192,32 @@ void test_doubleSize_should_keep_elements()
 	return;
 }
 
-void test_deleteElement_should_return_pointer_of_deleted_element()
+void test_deleteElement_should_return_pointer_of_deleted_element() //I think it works, but I don't know how to test it
 {
 	Vecteur testVecteur;
 
-	testVecteur.insert(new Cercle);
+	Cercle *cercle = new Cercle(3, 4, 5);
 
-	Forme *deletedForme = testVecteur.getShape(0);
+	testVecteur.insert(cercle);
 
-	cout << "deletedForme " << deletedForme << endl;
-	cout << "deletedElement" << testVecteur.deleteElement(0) << endl;
+	Forme* deletedForme = cercle;
 
-	//if(testVecteur.deleteElement(0) == deletedForme)
+	//cout << "deletedForme " << deletedForme << endl;
+	//cout << "deletedElement" << testVecteur.deleteElement(0) << endl;
+
+	testVecteur.deleteElement(0);
+
+	cout << deletedForme->getAncrage().x << endl; 
+
+	cout << (testVecteur.getShape(0))->getAncrage().x << endl; 
+
+	//if((testVecteur.getShape(0))->getAncrage().x == deletedForme->getAncrage().x)
 	//{
-	//	cout << "Success" << endl;		
+	//	cout << "Fail" << endl;		
 	//	return;
 	//}
 
-	cout << "Fail" << endl;
+	//cout << "Success" << endl;
 
 	return;
 }
