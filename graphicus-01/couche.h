@@ -19,6 +19,7 @@ class Couche
 {
 	public:
 		Couche();
+		~Couche();
 		
 		bool addShape(Forme *shape);
 

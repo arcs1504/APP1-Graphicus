@@ -15,11 +15,20 @@ Couche::Couche()
 	initialised = true;	
 }
 
+Couche::~Couche()
+{
+}
+
 bool Couche::addShape(Forme *shape)
 {
-	shapes.insert(shape);
-
-	return true;
+	if(shapes.insert(shape))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 Forme* Couche::removeShape(int shapeIndex)
@@ -29,6 +38,7 @@ Forme* Couche::removeShape(int shapeIndex)
 		Forme *error = {nullptr};
 		return error;
 	}
+
 	return shapes.deleteElement(shapeIndex);	
 }
 
@@ -39,17 +49,20 @@ Forme* Couche::getShape(int shapeIndex)
 		Forme *error = {nullptr};
 		return error;
 	}
+
 	return shapes.getShape(shapeIndex);
 }
 
 float Couche::getArea()
 {
-	int area;
+	float area;
 
 	for(int i = 0; i < shapes.size(); i++)
 	{
-
+		area = ((shapes.getShape(i))->aire()) + area;	
 	}
+
+	return area;
 }
 
 
