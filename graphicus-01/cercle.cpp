@@ -43,5 +43,5 @@ double Cercle::aire()
 
 void Cercle::afficher(ostream &s)
 {
-	s << "Cercle de rayon " << rayon << ", positioner en x:" << ancrage.x << " et en y:" << ancrage.y << " avec un aire de " << aire();
+	s << "Cercle (x=" << ancrage.x << ", y=" << ancrage.y << ", r=" << rayon << ", aire=" << aire() << ")" << endl;
 }

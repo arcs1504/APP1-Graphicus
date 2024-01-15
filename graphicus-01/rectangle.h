@@ -11,7 +11,7 @@ class Rectangle:public Forme
 	public:
 		Rectangle();
 		~Rectangle();
-		Rectangle(float width, float length, int x, int y);
+		Rectangle(float width1, float length1, int x, int y);
 		
 		void setWidth(float width1);
 		void setLength(float length1);

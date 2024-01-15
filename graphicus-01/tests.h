@@ -44,4 +44,9 @@ void test_doubleSize_should_keep_elements();
 void test_destroy_should_reset_size_and_capacity_values();
 
 void test_deleteElement_should_return_pointer_of_deleted_element();
+
+
+void test_all_functions_should_refuse_to_execute_if_couche_is_not_active();
+
+void test_getArea_should_return_total_area_of_all_the_shapes();
 #endif

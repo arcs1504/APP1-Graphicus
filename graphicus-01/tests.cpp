@@ -9,11 +9,28 @@
 
 #include "tests.h"
 #include "cercle.h"
+#include "rectangle.h"
+#include "carree.h"
+#include "couche.h"
 #include <iostream>
 
 void Tests::tests_unitaires_formes()
 {
-   // Tests sur les formes geometriques
+	Rectangle rectangle;
+	rectangle.setWidth(12);
+	rectangle.setLength(8);
+	rectangle.translater(8, 6);
+	rectangle.afficher(std::cout);
+
+	Carree carree;
+	carree.setCote(12);
+	carree.translater(8, 2);
+	carree.afficher(std::cout);
+
+	Cercle cercle;
+	cercle.setRayon(12);
+	cercle.translater(8, 2);
+	cercle.afficher(std::cout);
 }
 
 
@@ -34,7 +51,9 @@ void Tests::tests_unitaires_vecteur()
 
 void Tests::tests_unitaires_couche()
 {
-   // Tests sur la classe Couche
+	test_all_functions_should_refuse_to_execute_if_couche_is_not_active();
+
+	test_getArea_should_return_total_area_of_all_the_shapes();
 }
 
 void Tests::tests_unitaires_canevas()
@@ -222,8 +241,61 @@ void test_deleteElement_should_return_pointer_of_deleted_element() //I think it 
 	return;
 }
 
+/********************Tests sur les couches********************/
+void test_all_functions_should_refuse_to_execute_if_couche_is_not_active()
+{
+	Couche couche;
+
+	Cercle *cercle = new Cercle;
+
+	if(couche.addShape(cercle) == false)
+	{
+		cout << "Success" << endl;
+	}
+	if(couche.getArea() == 0)
+	{
+		cout << "Success" << endl;
+	}
+	if(couche.translaterFormes(3, 5) == false)
+	{
+		cout << "Success" << endl;
+	}
 
 
+	couche.print(std::cout);
+
+	delete cercle;
+}
+
+void test_getArea_should_return_total_area_of_all_the_shapes()
+{
+	Couche couche;
+
+	couche.changeState(1);
+
+	int rectangleLength = 1;
+	int rectangleWidth = 1;
+
+	int circleRadius = 1;
+
+	int squareSide = 1;
+
+	Rectangle *rectangle = new Rectangle(rectangleLength, rectangleWidth, 0, 0); 
+	Cercle *cercle = new Cercle(circleRadius, 0, 0); 
+	Carree *carree = new Carree(squareSide, 0, 0); 
+
+	couche.addShape(rectangle);
+	couche.addShape(cercle);
+	couche.addShape(carree);
+
+cout << ((M_PI * circleRadius * circleRadius) + (rectangleLength * rectangleLength) + (squareSide * squareSide)) << endl;
+
+	cout << couche.getArea() << endl;
+
+	delete cercle;
+	delete carree;
+	delete rectangle;
+}
 
 
 

@@ -4,16 +4,16 @@
 #include <iostream>
 #include "rectangle.h"
 
-class carree:public Rectangle
+class Carree:public Rectangle
 {
 	public:
-		carree();
-		~carree();
-		carree(int x, int y, int cote);
+		Carree();
+		~Carree();
+		Carree(int cote, int x, int y);
 		
 		bool checkCote (int cote);
-		void getCote (int cote1);
-		int vraiCote();
+		void setCote(int cote1);
+		int getCote();
 		
 		virtual double aire();
 		virtual void afficher(ostream & s);

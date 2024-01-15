@@ -8,14 +8,16 @@ Rectangle::Rectangle()
 {
 	width = 1;
 	length = 1;
+	ancrage.x = 0;
+	ancrage.y = 0;
 }
 
-Rectangle:: Rectangle(float width, float length, int x, int y)
+Rectangle::Rectangle(float width1, float length1, int x, int y)
 {
 	ancrage.x = x;
 	ancrage.y = y;
-	length = 1;
-	width = 1;
+	length = length1;
+	width = width1;
 	
 }
 
@@ -59,7 +61,6 @@ bool Rectangle::checkLength(float length)
 	{
 		return true;
 	}
-
 }
 
 void Rectangle::setLength(float length1)
@@ -87,12 +88,9 @@ double Rectangle::getLength()
 double Rectangle::aire()
 {
 	return length * width;
-
 }
 
 void Rectangle::afficher(ostream & s)
 {	
-	
-			
-	s << "c'est un rectangle de " << width << "u par " << length << "u avec une air de " << aire() << " u au carrée avec des cordonnées de " << ancrage.x << ancrage.y << endl;  
+	s << "Rectangle (x=" << ancrage.x << ", y=" << ancrage.y << ", l=" << getLength() << ", h=" << getWidth() << ", aire=" << aire() << ")" << endl;
 }

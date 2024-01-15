@@ -3,27 +3,28 @@
 
 using namespace std;
 
-carree::carree()
+Carree::Carree()
 {
-	cote=1;
+	cote = 1;
+	ancrage.x = 0;
+	ancrage.y = 0;
 }
 
-carree::carree(int x, int y, int cote)
+Carree::Carree(int cote, int x, int y)
 {
 	ancrage.x = x;
 	ancrage.y = y;
-	cote=1;
-		
+	setCote(cote);		
 }
 
-carree::~carree()
+Carree::~Carree()
 {
 
 }
 
-bool carree::checkCote(int cote)
+bool Carree::checkCote(int cote)
 {
-	if ( cote < 0)
+	if (cote < 0)
 	{
 		return false;
 	}
@@ -33,7 +34,7 @@ bool carree::checkCote(int cote)
 	}
 }
 
-void carree::getCote (int cote1)
+void Carree::setCote (int cote1)
 {
 	if(checkCote(cote1) == true )
 	{
@@ -45,17 +46,17 @@ void carree::getCote (int cote1)
 	}
 }
 
-int carree:: vraiCote()
+int Carree:: getCote()
 {
 	return cote;
 }
 
- double carree:: aire()
+double Carree:: aire()
 {
 	return cote * cote;
 }
 
-void carree::afficher(ostream & s)
+void Carree::afficher(ostream & s)
 {
-	s << "le carrée a une aire de" << aire() << "u avec des cotés de longueure de" << cote << "avec des coordonnées de " << ancrage.x << ancrage.y << endl;
+	s << "Carre (x=" << ancrage.x << ", y=" << ancrage.y << ", c=" << getCote() << ", aire=" << aire() << ")" << endl;
 }

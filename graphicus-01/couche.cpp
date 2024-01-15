@@ -31,10 +31,8 @@ bool Couche::addShape(Forme *shape)
 		}
 
 	}
-	else
-	{
-		return false;
-	}
+
+	return false;
 }
 
 Forme* Couche::removeShape(int shapeIndex)
@@ -63,7 +61,7 @@ float Couche::getArea()
 {
 	if(active)
 	{
-		float area;
+		float area = 0;
 
 		for(int i = 0; i < shapes.size(); i++)
 		{
@@ -132,6 +130,8 @@ bool Couche::changeState(int newState)//0 = initialised, 1 = active, 2 = active
 		active = false;
 		inactive = true;
 	}
+
+	return true;
 }
 
 void Couche::print(ostream &s)
@@ -153,7 +153,7 @@ void Couche::print(ostream &s)
 	
 	for(int i = 0; i < shapes.size(); i++)
 	{
-		(shapes.getShape(i))->afficher(ostream &s);
+		(shapes.getShape(i))->afficher(std::cout);
 	}
 }
 
