@@ -12,7 +12,9 @@
 
 Couche::Couche()
 {
-	initialised = true;	
+	initialised = true;
+	active = false;
+	inactive = false;
 }
 
 Couche::~Couche()
@@ -21,9 +23,13 @@ Couche::~Couche()
 
 bool Couche::addShape(Forme *shape)
 {
-	if(shapes.insert(shape))
+	if(active)
 	{
-		return true;
+		if(shapes.insert(shape))
+		{
+			return true;
+		}
+
 	}
 	else
 	{
@@ -33,18 +39,18 @@ bool Couche::addShape(Forme *shape)
 
 Forme* Couche::removeShape(int shapeIndex)
 {
-	if(shapeIndex < 0)
+	if(shapeIndex < 0 || active == false)
 	{
 		Forme *error = {nullptr};
 		return error;
 	}
-
+	
 	return shapes.deleteElement(shapeIndex);	
 }
 
 Forme* Couche::getShape(int shapeIndex)
 {
-	if(shapeIndex < 0)
+	if(shapeIndex < 0 || active == false)
 	{
 		Forme *error = {nullptr};
 		return error;
@@ -55,16 +61,83 @@ Forme* Couche::getShape(int shapeIndex)
 
 float Couche::getArea()
 {
-	float area;
-
-	for(int i = 0; i < shapes.size(); i++)
+	if(active)
 	{
-		area = ((shapes.getShape(i))->aire()) + area;	
-	}
+		float area;
 
-	return area;
+		for(int i = 0; i < shapes.size(); i++)
+		{
+			area = ((shapes.getShape(i))->aire()) + area;	
+		}
+
+		return area;
+	}
+	else if(initialised)
+	{
+		return 0;
+	}
 }
 
+bool Couche::translaterFormes(int translateX, int translateY)
+{
+	if(active)	
+	{
+		for(int i = 0; i < shapes.size(); i++)
+		{
+			if(shapes.getShape(i) == nullptr)
+			{
+				return false;
+			}
+			else
+			{
+				(shapes.getShape(i))->translater(translateX, translateY);
+			}
+		}
+
+		return true;
+
+	}
+	else
+	{
+		return false;
+	}
+}
+
+bool Couche::reset()
+{
+	shapes.destroy();
+
+	changeState(0);
+
+	return true;
+}
+
+bool Couche::changeState(int newState)//0 = initialised, 1 = active, 2 = active
+{
+	if(newState == 0)
+	{
+		initialised = true;
+		active = false;
+		inactive = false;
+	}
+	else if(newState == 1)
+	{
+		initialised = false;
+		active = true;
+		inactive = false;
+	}
+	else if(newState == 2)
+	{
+		initialised = false;
+		active = false;
+		inactive = true;
+	}
+}
+
+void Couche::print(ostream &s)
+{
+
+}
 
 
 

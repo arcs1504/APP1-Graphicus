@@ -14,6 +14,7 @@
 #define COUCHE_H
 
 #include "vecteur.h"
+#include <iostream>
 
 class Couche
 {
@@ -28,6 +29,14 @@ class Couche
 		Forme* getShape(int shapeIndex);
 
 		float getArea();
+
+		bool translaterFormes(int translateX, int translateY);
+
+		bool reset();
+
+		bool changeState(int newState);
+
+		void print(ostream &s);
 	
 	private:
 		bool initialised;
