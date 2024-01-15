@@ -136,7 +136,25 @@ bool Couche::changeState(int newState)//0 = initialised, 1 = active, 2 = active
 
 void Couche::print(ostream &s)
 {
-
+	if(active)
+	{
+		cout << "État: active" << endl;
+	}
+	else if(inactive)
+	{
+		cout << "État: inactive" << endl;
+	}
+	else if(initialised)
+	{
+		cout << "État: initialisée" << endl;
+		cout << "Couche: vide" << endl;
+		return;
+	}
+	
+	for(int i = 0; i < shapes.size(); i++)
+	{
+		(shapes.getShape(i))->afficher(ostream &s);
+	}
 }
 
 
