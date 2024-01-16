@@ -66,7 +66,7 @@ Forme* Vecteur::deleteElement(int deleteIndex)
 		}
 		else if(hasBeenDeleted)
 		{	
-			newFormes[i - 1] = formes[i - 1];
+			newFormes[i - 1] = formes[i];
 		}
 		else
 		{
@@ -74,7 +74,11 @@ Forme* Vecteur::deleteElement(int deleteIndex)
 		}
 	}
 
-	*formes = *newFormes;
+	for(int i = 0; i < nbElements - 1; i++)
+	{
+		formes[i] = newFormes[i];
+	}
+	
 	nbElements--;	
 
 	delete[] newFormes;

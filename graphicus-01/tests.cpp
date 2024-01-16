@@ -224,7 +224,7 @@ void Tests::testValidation()
 
 	caneva.activerCouche(0);
 	
-	caneva.retirerForme(2);
+	caneva.retirerForme(1);
 	
 	caneva.reinitialiserCouche(1);
 
