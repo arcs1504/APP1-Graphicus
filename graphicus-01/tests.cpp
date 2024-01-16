@@ -183,7 +183,7 @@ void Tests::testValidation()
    	caneva.ajouterForme(carree1);
    	caneva.ajouterForme(rectangle1);
    	
-   	caneva.activerCouche(1);
+	caneva.activerCouche(1);
 
    	Rectangle *rectangle2 = new Rectangle(9,12,0,0);
    	caneva.ajouterForme(rectangle2);

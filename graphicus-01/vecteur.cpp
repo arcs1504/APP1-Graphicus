@@ -120,4 +120,3 @@ void Vecteur::destroy()
 	arraySize = initialArraySize;
 	nbElements = 0;
 }
-

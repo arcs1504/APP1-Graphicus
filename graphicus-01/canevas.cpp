@@ -45,17 +45,24 @@ bool Canevas::reinitialiserCouche(int index)
 
 bool Canevas::activerCouche(int index)
 {
-	for(int i=0; i<MAX_COUCHES; i++)
+	if(index > MAX_COUCHES)
 	{
-		if(couches[i].active)
-		{
-			couches[i].changeState(2);
-		}
+		return false;
 	}
-	
-	couches[index].changeState(1);
+	else
+	{
+		for(int i=0; i<MAX_COUCHES; i++)
+		{
+			if(couches[i].active)
+			{
+				couches[i].changeState(2);
+			}
+		}
+		
+		couches[index].changeState(1);
+	}
 
-   return true;
+	return true;
 }
 
 bool Canevas::desactiverCouche(int index)
@@ -93,11 +100,13 @@ bool Canevas::retirerForme(int index)
 
 double Canevas::aire()
 {
-	double aire=0.0;
+	double aire = 0;
+
 	for(int i=0; i<MAX_COUCHES; i++)
 	{
-		aire=aire+couches[i].getArea();
+		aire += (couches[i].getArea());
 	}
+
    return aire;
 }
 

@@ -59,13 +59,20 @@ Forme* Couche::getShape(int shapeIndex)
 
 float Couche::getArea()
 {
-	if(active)
+	if(active == true || inactive == true)
 	{
 		float area = 0;
 
 		for(int i = 0; i < shapes.size(); i++)
 		{
-			area = ((shapes.getShape(i))->aire()) + area;	
+			if(shapes.getShape(i) == nullptr)
+			{
+				continue;
+			}
+			else
+			{
+				area = ((shapes.getShape(i))->aire()) + area;	
+			}
 		}
 
 		return area;
@@ -153,42 +160,13 @@ void Couche::print(ostream &s)
 	
 	for(int i = 0; i < shapes.size(); i++)
 	{
-		(shapes.getShape(i))->afficher(std::cout);
+		if(shapes.getShape(i) == nullptr)
+		{
+			continue;
+		}
+		else
+		{
+			(shapes.getShape(i))->afficher(std::cout);
+		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
