@@ -14,8 +14,6 @@
 #include "forme.h"
 #include "couche.h"
 
-
-
 const int MAX_COUCHES = 5;
 
 using namespace std;

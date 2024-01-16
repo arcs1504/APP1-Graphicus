@@ -23,6 +23,5 @@ class Carree:public Rectangle
 		
 	protected:
 		int cote;
-
 };
 #endif

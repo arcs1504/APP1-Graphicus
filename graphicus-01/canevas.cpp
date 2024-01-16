@@ -76,7 +76,7 @@ bool Canevas::ajouterForme(Forme *p_forme)
 {
 	for (int i=0; i<MAX_COUCHES; i++)
 	{
-		if (couches[i].active)// == active)
+		if (couches[i].active)
 		{
 			couches[i].addShape(p_forme);
 		}

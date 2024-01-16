@@ -388,7 +388,7 @@ void test_doubleSize_should_keep_elements()
 	return;
 }
 
-void test_deleteElement_should_return_pointer_of_deleted_element() //I think it works, but I don't know how to test it
+void test_deleteElement_should_return_pointer_of_deleted_element()
 {
 	Vecteur testVecteur;
 
@@ -398,22 +398,19 @@ void test_deleteElement_should_return_pointer_of_deleted_element() //I think it 
 
 	Forme* deletedForme = cercle;
 
-	//cout << "deletedForme " << deletedForme << endl;
-	//cout << "deletedElement" << testVecteur.deleteElement(0) << endl;
-
 	testVecteur.deleteElement(0);
 
 	cout << deletedForme->getAncrage().x << endl; 
 
 	cout << (testVecteur.getShape(0))->getAncrage().x << endl; 
 
-	//if((testVecteur.getShape(0))->getAncrage().x == deletedForme->getAncrage().x)
-	//{
-	//	cout << "Fail" << endl;		
-	//	return;
-	//}
+	if((testVecteur.getShape(0))->getAncrage().x == deletedForme->getAncrage().x)
+	{
+		cout << "Fail" << endl;		
+		return;
+	}
 
-	//cout << "Success" << endl;
+	cout << "Success" << endl;
 
 	return;
 }
