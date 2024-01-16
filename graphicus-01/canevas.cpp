@@ -23,15 +23,13 @@ Canevas::~Canevas()
 
 bool Canevas::reinitialiser()
 {
-	activerCouche(0);
 	for(int i=0; i<MAX_COUCHES; i++)
 	{
-		if(couches[i].initialised) //!= initialised)
-		{
-			couches[i].reset();
-		}
-		
+		couches[i].reset();
 	}	
+
+	activerCouche(0);
+
    return true;
 }
 

@@ -190,7 +190,7 @@ void Tests::testValidation()
    	
    	caneva.afficher(cout);
 
-   	cout << endl << "Aire du canevas:" << caneva.aire() << endl;
+   	cout << endl << "Aire du canevas: " << caneva.aire() << endl;
 
 
 	cout << endl << endl;
@@ -214,7 +214,7 @@ void Tests::testValidation()
  	
  	caneva.afficher(cout);
 
- 	cout << endl << "Aire du canevas:" << caneva.aire() << endl;
+ 	cout << endl << "Aire du canevas: " << caneva.aire() << endl;
 
 
 	cout << endl << endl;
@@ -232,40 +232,40 @@ void Tests::testValidation()
 	
 	caneva.afficher(cout);
 
-	cout << endl << "Aire du canevas:" << caneva.aire() << endl;
+	cout << endl << "Aire du canevas: " << caneva.aire() << endl;
 
 
-  	test4();
-  	test5();
-}
+	cout << endl << endl;
 
-//**********************************Tests finaux*******************************//
-void test4()
-{
-	Canevas caneva;
+	cout << "---------------Étapes 14 à 16---------------" << endl << endl;
+
+
 	caneva.reinitialiser();
 	
 	caneva.afficher(cout);
-	cout << "Aire:" << caneva.aire() << endl;
-}
 
-void test5()
-{
-	Canevas caneva;
-	
+	cout << endl << "Aire du canevas: " << caneva.aire() << endl;
+
+
+	cout << endl << endl;
+
+	cout << "---------------Étapes 17 à 20---------------" << endl << endl;
+
+
 	caneva.activerCouche(3);
 	Carree *carree = new Carree(10,10,10);
-	//forme null
+	Forme *forme {nullptr};
 	
 	caneva.ajouterForme(carree);
-	// caneva.ajouterForme();
+	caneva.ajouterForme(forme);
 	
 	caneva.activerCouche(6);
+
 	caneva.afficher(cout);
 	
-	cout << "Aire:" << caneva.aire() << endl;
-	
+	cout << endl << "Aire du canevas: " << caneva.aire() << endl;
 }
+
 //*******************************Tests sur les vecteur**********************************************//
 void inserted_shape_returns_the_right_shape()
 {
