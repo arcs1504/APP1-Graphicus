@@ -15,7 +15,7 @@ int main()
 {
    	Tests tests;
 
-   	tests.tests_unitaires_couche();
+   	tests.testValidation();
 
    	return 0;
 }

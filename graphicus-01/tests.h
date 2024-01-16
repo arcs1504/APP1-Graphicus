@@ -29,7 +29,15 @@ public:
    void tests_application_cas_01();
    void tests_application_cas_02();
    void tests_application(); // Appel de tous les tests applicatifs
+
+   void testValidation();
 };
+
+void test1();
+void test2();
+void test3();
+void test4();
+void test5();
 
 void inserted_shape_returns_the_right_shape();
 

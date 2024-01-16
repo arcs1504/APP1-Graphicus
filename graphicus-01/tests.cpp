@@ -12,6 +12,7 @@
 #include "rectangle.h"
 #include "carree.h"
 #include "couche.h"
+#include "canevas.h"
 #include <iostream>
 
 void Tests::tests_unitaires_formes()
@@ -58,7 +59,83 @@ void Tests::tests_unitaires_couche()
 
 void Tests::tests_unitaires_canevas()
 {
-   // Tests sur la classe Canevas
+	Canevas CanevasTest;
+	// réinitialisation
+	if(CanevasTest.reinitialiser() == true )
+	{
+		cout <<" réinitialisation réussie" << endl;
+	}
+	else
+	{
+		cout << " réinitialisation non réussie" << endl;
+	}
+	
+	
+	// activation couche
+	if(CanevasTest.activerCouche(30) == true) 
+	{
+		cout<< "activation réussie" << endl;
+	}
+	else
+	cout <<" activation non réussi" << endl;
+	
+	if(CanevasTest.activerCouche(3) == true)
+	{
+		cout<< "activation réussie" << endl;
+	}
+	else
+	{
+		cout << "activation non réussi" << endl;
+	}
+	
+	// enlever couche
+	if(CanevasTest.desactiverCouche(4) == true)
+	{
+		cout <<" désactiver réussi"<< endl;
+	}
+	else
+	{
+		cout << " désactiver non réussi" << endl;
+	}
+	
+	if(CanevasTest.desactiverCouche(56) == true)
+	{
+		cout <<" désactiver réussi"<< endl;
+	}
+	else
+	{
+		cout << " désactiver non réussi" << endl;
+	}
+	
+	//ajouter forme 
+	Forme* test= new Rectangle;
+	if(CanevasTest.ajouterForme(test) == true)
+	{
+		cout << "Nouvelle forme " << endl;
+	}
+	else
+	{
+		cout << " pas de nouvelle forme" << endl;
+	}
+	
+	// retirer forme
+	if( CanevasTest.retirerForme(4) == true)
+	{
+		cout <<"la forme est retiré"<< endl;
+	}
+	
+	//aire
+	cout << " L'aire est de :"<< CanevasTest.aire() << endl;
+	
+	// translater
+	if ( CanevasTest.translater(6,8) == true)
+	{
+		cout << " réussi"<<endl;
+	}
+	
+	//afficher
+	
+	CanevasTest.afficher(cout);
 }
 
 void Tests::tests_unitaires()
@@ -89,6 +166,106 @@ void Tests::tests_application_cas_02()
     // Il faut ajouter les operations realisant ce scenario de test.
 }
 
+void Tests::testValidation()
+{
+	cout << "---------------Étapes 1 à 4---------------" << endl << endl;
+
+
+   	Canevas caneva;
+
+   	caneva.activerCouche(2);
+
+   	Cercle *cercle1 = new Cercle(5,0,1);
+   	Carree *carree1 = new Carree(6,1,2);
+   	Rectangle *rectangle1 = new Rectangle(9,4,2,3);
+
+   	caneva.ajouterForme(cercle1);
+   	caneva.ajouterForme(carree1);
+   	caneva.ajouterForme(rectangle1);
+   	
+   	caneva.activerCouche(1);
+
+   	Rectangle *rectangle2 = new Rectangle(9,12,0,0);
+   	caneva.ajouterForme(rectangle2);
+   	
+   	caneva.afficher(cout);
+
+   	cout << endl << "Aire du canevas:" << caneva.aire() << endl;
+
+
+	cout << endl << endl;
+
+	cout << "---------------Étapes 5 à 8---------------" << endl << endl;
+
+
+	caneva.activerCouche(0);
+
+ 	Rectangle *rectangle3 = new Rectangle(1,1,0,0);
+ 	Carree *carree2 = new Carree(1,0,0);
+ 	Cercle *cercle2 = new Cercle(1,0,0);
+
+	caneva.ajouterForme(rectangle3);
+	caneva.ajouterForme(carree2);
+	caneva.ajouterForme(cercle2);
+ 	
+ 	caneva.activerCouche(2);
+
+ 	caneva.translater(2,1);
+ 	
+ 	caneva.afficher(cout);
+
+ 	cout << endl << "Aire du canevas:" << caneva.aire() << endl;
+
+
+	cout << endl << endl;
+
+	cout << "---------------Étapes 9 à 13---------------" << endl << endl;
+
+
+	caneva.activerCouche(0);
+	
+	caneva.retirerForme(2);
+	
+	caneva.reinitialiserCouche(1);
+
+	caneva.activerCouche(4);
+	
+	caneva.afficher(cout);
+
+	cout << endl << "Aire du canevas:" << caneva.aire() << endl;
+
+
+  	test4();
+  	test5();
+}
+
+//**********************************Tests finaux*******************************//
+void test4()
+{
+	Canevas caneva;
+	caneva.reinitialiser();
+	
+	caneva.afficher(cout);
+	cout << "Aire:" << caneva.aire() << endl;
+}
+
+void test5()
+{
+	Canevas caneva;
+	
+	caneva.activerCouche(3);
+	Carree *carree = new Carree(10,10,10);
+	//forme null
+	
+	caneva.ajouterForme(carree);
+	// caneva.ajouterForme();
+	
+	caneva.activerCouche(6);
+	caneva.afficher(cout);
+	
+	cout << "Aire:" << caneva.aire() << endl;
+	
+}
 //*******************************Tests sur les vecteur**********************************************//
 void inserted_shape_returns_the_right_shape()
 {

@@ -38,10 +38,10 @@ class Couche
 
 		void print(ostream &s);
 	
-	private:
 		bool initialised;
 		bool active;
 		bool inactive;
+	private:
 		Vecteur shapes;
 };
 #endif

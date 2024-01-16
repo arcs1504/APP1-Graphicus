@@ -14,6 +14,8 @@
 #include "forme.h"
 #include "couche.h"
 
+
+
 const int MAX_COUCHES = 5;
 
 using namespace std;
@@ -42,6 +44,7 @@ private:
      bool active;
      bool inactive;
      bool initialiser;
+    
 
 };
 

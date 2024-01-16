@@ -9,8 +9,8 @@ class Cercle:public Forme
 {
 	public:
 		Cercle();
-
 		Cercle(float rayon, int x, int y);
+		~Cercle();
 
 		void setRayon(float rayon1)
 		{ rayon = rayon1; }

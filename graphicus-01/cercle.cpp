@@ -24,6 +24,10 @@ Cercle::Cercle(float rayon, int x, int y):Forme(x, y)
 	setAncrage(ancrageCercle);
 }
 
+Cercle::~Cercle()
+{
+}
+
 bool Cercle::checkValue(double value)
 {
 	if(value < 0)

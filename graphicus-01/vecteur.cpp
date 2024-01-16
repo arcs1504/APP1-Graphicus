@@ -45,7 +45,7 @@ bool Vecteur::insert(Forme *forme)
 
 Forme* Vecteur::deleteElement(int deleteIndex)
 {
-	if(deleteIndex < 0)
+	if(deleteIndex < 0 || deleteIndex > size())
 	{
 		Forme *error {nullptr};
 		return error;
@@ -55,27 +55,36 @@ Forme* Vecteur::deleteElement(int deleteIndex)
 
 	Forme* deletedShape;
 
+	bool hasBeenDeleted = false;
+
 	for(int i = 0; i < nbElements; i++)
 	{
 		if (i == deleteIndex)
 		{
-			deletedShape = newFormes[i];
+			deletedShape = formes[i];
+			hasBeenDeleted = true;
+		}
+		else if(hasBeenDeleted)
+		{	
+			newFormes[i - 1] = formes[i - 1];
 		}
 		else
-		{	
+		{
 			newFormes[i] = formes[i];
 		}
 	}
 
-	formes = newFormes;
+	*formes = *newFormes;
 	nbElements--;	
+
+	delete[] newFormes;
 
 	return deletedShape;
 }
 
 Forme* Vecteur::getShape(int shapeIndex)
 {
-	if (shapeIndex < 0) //Plus grand que capacite???
+	if (shapeIndex < 0 || shapeIndex > size())
 	{
 		Forme* error {nullptr};
 		return error;	
