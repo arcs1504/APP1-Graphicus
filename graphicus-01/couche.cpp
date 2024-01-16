@@ -77,10 +77,8 @@ float Couche::getArea()
 
 		return area;
 	}
-	else if(initialised)
-	{
-		return 0;
-	}
+
+	return 0;
 }
 
 bool Couche::translaterFormes(int translateX, int translateY)

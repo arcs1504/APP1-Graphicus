@@ -18,22 +18,22 @@ tests.o: tests.cpp tests.h canevas.h couche.h forme.h
 canevas.o: canevas.cpp canevas.h couche.h forme.h
 	g++ -c canevas.cpp
 
-couche.o: couche.cpp couche.h forme.h
+couche.o: couche.cpp couche.h vecteur.h
 	g++ -c couche.cpp
 
-forme.o: forme.cpp forme.h
+forme.o: forme.cpp forme.h coordonnee.h
 	g++ -c forme.cpp
 
-cercle.o: cercle.cpp cercle.h
+cercle.o: cercle.cpp cercle.h forme.h
 	g++ -c cercle.cpp
 
-rectangle.o: rectangle.cpp rectangle.h
+rectangle.o: rectangle.cpp rectangle.h forme.h
 	g++ -c rectangle.cpp
 
-carree.o: carree.cpp carree.h
+carree.o: carree.cpp carree.h rectangle.h
 	g++ -c carree.cpp
 
-vecteur.o: vecteur.cpp vecteur.h
+vecteur.o: vecteur.cpp vecteur.h forme.h
 	g++ -c vecteur.cpp
 
 clean:
